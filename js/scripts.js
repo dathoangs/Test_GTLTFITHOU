@@ -60,3 +60,41 @@ window.addEventListener('DOMContentLoaded', event => {
 function rickRoll(){
     window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 }
+
+
+
+var typeWriter = document.querySelector(".typeWriter");
+var txtPost = 0, msgIndex = 0, msgCur;
+var speed = 80;
+var msgArr = ["Chúng mình là Câu lạc bộ Giải thuật Lập trình.",
+"Chúng mình đẹp try nhất Vịnh Bắc Bộ!", "Tham gia cùng chúng mình nhé ❤",
+"Chúng mình tìm hiểu thuật toán"];
+
+writeFunc = function (){
+    msgCur = msgArr[msgIndex].substring(0, txtPost);
+    typeWriter.innerHTML = msgCur + "<span></span>" ;
+
+    if (txtPost == msgArr[msgIndex].length){
+        setTimeout(eraseFunc, 7000);
+    }
+    if (txtPost++ != msgArr[0].length){
+        setTimeout(writeFunc, speed);
+    }
+};
+window.addEventListener("load", writeFunc);
+
+eraseFunc = function(){
+    msgCur = msgCur.substring(0, msgCur.length - 1);
+    typeWriter.innerHTML = msgCur + "<span></span>" ;
+
+    if (msgCur.length == 0){
+        msgIndex = Math.floor(Math.random() * msgArr.length);;
+        txtPost = 0;
+        setTimeout(writeFunc, speed);
+    }
+    if (msgCur.length != 0){
+        setTimeout(eraseFunc, speed-30);
+    }    
+}
+
+
