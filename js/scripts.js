@@ -81,7 +81,8 @@ writeFunc = function (){
         setTimeout(writeFunc, speed);
     }
 };
-window.addEventListener("load", writeFunc);
+setTimeout(window.addEventListener("load", writeFunc), 10000);
+
 
 eraseFunc = function(){
     msgCur = msgCur.substring(0, msgCur.length - 1);
