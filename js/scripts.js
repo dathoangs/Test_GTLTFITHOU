@@ -68,7 +68,7 @@ var txtPost = 0, msgIndex = 0, msgCur;
 var speed = 80;
 var msgArr = ["Chúng mình là Câu lạc bộ Giải thuật Lập trình.",
 "Chúng mình đẹp try nhất Vịnh Bắc Bộ!", "Tham gia cùng chúng mình nhé ❤",
-"Chúng mình tìm hiểu thuật toán"];
+"Chúng mình tìm hiểu thuật toán", "Học C++ cùng chúng mình ❤"];
 
 writeFunc = function (){
     msgCur = msgArr[msgIndex].substring(0, txtPost);
@@ -81,7 +81,8 @@ writeFunc = function (){
         setTimeout(writeFunc, speed);
     }
 };
-setTimeout(window.addEventListener("load", writeFunc), 10000);
+
+window.addEventListener("load", setTimeout(writeFunc, 2000) );
 
 
 eraseFunc = function(){
