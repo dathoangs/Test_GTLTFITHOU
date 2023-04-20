@@ -75,22 +75,23 @@ writeFunc = function (){
     typeWriter.innerHTML = msgCur + "<span></span>" ;
 
     if (txtPost == msgArr[msgIndex].length){
-        setTimeout(eraseFunc, 6000);
+        setTimeout(eraseFunc, 4000);
     }
     if (txtPost++ != msgArr[0].length){
         setTimeout(writeFunc, speed);
     }
 };
 
-window.addEventListener("load", setTimeout(writeFunc, 2000) );
-
-
 eraseFunc = function(){
     msgCur = msgCur.substring(0, msgCur.length - 1);
     typeWriter.innerHTML = msgCur + "<span class = \"caret\" ></span>" ;
 
     if (msgCur.length == 0){
-        msgIndex = Math.floor(Math.random() * msgArr.length);;
+        let tmp;
+        do {
+            tmp = Math.floor(Math.random() * msgArr.length);
+        } while (tmp == msgIndex)
+        msgIndex = tmp;
         txtPost = 0;
         setTimeout(writeFunc, speed);
     }
@@ -98,5 +99,10 @@ eraseFunc = function(){
         setTimeout(eraseFunc, speed-30);
     }    
 }
+
+window.addEventListener("load", () => setTimeout(writeFunc, 2000) );
+
+
+
 
 
